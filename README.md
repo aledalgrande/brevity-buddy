@@ -4,6 +4,10 @@
 
 Summarize a page by clicking on the extension icon.
 
+## How to use
+
+Add your OpenAI key in the code, tinkerer!
+
 ## Limitations
 
 - Does not handle a page that is too long.
