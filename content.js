@@ -1,11 +1,12 @@
 browser.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
   if (request.action === 'summarize') {
     try {
+      const { apiKey } = await browser.storage.local.get('apiKey');
       const response = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer <your API key here>',
+          'Authorization': `Bearer ${apiKey}`,
         },
         body: JSON.stringify({
             model: "gpt-3.5-turbo",
@@ -18,6 +19,11 @@ browser.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
           })
       });
       const data = await response.json();
+
+      if (!data.choices) {
+        console.log(data);
+      }
+
       return { summary: data.choices[0].message.content.trim() };
     } catch (error) {
       console.error('Error:', error);

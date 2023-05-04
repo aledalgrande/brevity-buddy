@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (response && response.summary) {
       document.getElementById('summary').value = response.summary;
     } else {
-      document.getElementById('summary').value = 'No summary available';
+      document.getElementById('summary').value = 'Could not summarize';
       console.error('Error: Invalid response', response);
     }
   } catch (error) {

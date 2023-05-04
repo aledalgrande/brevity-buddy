@@ -6,7 +6,9 @@ Summarize a page by clicking on the extension icon.
 
 ## How to use
 
-Add your OpenAI key in the code, tinkerer!
+- Open `about:debugging#/runtime/this-firefox` and click on `Load Temporary Add-on`, then select any file in the extension folder
+- Go to your extension preferences, by right clicking on the extension, and add your OpenAI key
+- Click on the extension icon when you want to summarize!
 
 ## Limitations
 
