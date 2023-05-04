@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "Brevity Buddy",
+  "version": "1.0",
+  "description": "Summarizes a web page using OpenAI API",
+  "permissions": [
+    "activeTab",
+    "https://api.openai.com/*"
+  ],
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "48": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "applications": {
+    "gecko": {
+      "id": "brevity-buddy@yourdomain.com",
+      "strict_min_version": "42.0"
+    }
+  }
+}
